@@ -38,7 +38,7 @@ class Share
      *
      * @var string
      */
-    protected $suffix = '</ul></div>';
+    protected $suffix = '';
 
     /**
      * The generated html
