@@ -31,7 +31,7 @@ class Share
      *
      * @var string
      */
-    protected $prefix = '<div id="social-links"><ul>';
+    protected $prefix = '';
 
     /**
      * Html to append after the share links
@@ -220,7 +220,10 @@ class Share
     {
         $fontAwesomeVersion = config('laravel-share.fontAwesomeVersion', 4);
 
-        $this->html .= trans("laravel-share::laravel-share-fa$fontAwesomeVersion.$provider", [
+        $this->prefix = trans("laravel-share::laravel-share-fa$fontAwesomeVersion.prefix");
+        $this->suffix = trans("laravel-share::laravel-share-fa$fontAwesomeVersion.suffix");
+
+        $this->html .= trans("laravel-share::laravel-share-fa$fontAwesomeVersion.social_list.$provider", [
             'url' => $url,
             'class' => key_exists('class', $this->options) ? $this->options['class'] : '',
             'id' => key_exists('id', $this->options) ? $this->options['id'] : '',
